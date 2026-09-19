@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Portfolio de Glory - Étudiant en BTS SIO SISR spécialisé en systèmes, réseaux et cybersécurité.">
+
+    <title>Glory | Portfolio BTS SIO SISR</title>
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #06090d;
+            --bg2: #0a1016;
+            --card: rgba(17, 25, 32, 0.72);
+            --cyan: #54dcf5;
+            --cyan2: #1eb9d9;
+            --white: #f5f9fb;
+            --text: #c6d0d5;
+            --muted: #7e8b92;
+            --border: rgba(84, 220, 245, 0.16);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--cyan);
+            color: #041016;
+        }
+/* 
+}
+
+
+        /* =========================================================
+           BACKGROUND
+        ========================================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            top: -250px;
+            left: -250px;
+            background: rgba(42, 201, 231, 0.08);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            right: -200px;
+            bottom: -200px;
+            background: rgba(36, 166, 198, 0.07);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+
+        /* =========================================================
+           PARTICULES
+        ========================================================= */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--cyan);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            from {
+                transform: translateY(110vh);
+            }
+
+            to {
+                transform: translateY(-20vh);
+            }
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(6, 9, 13, 0.78);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        nav {
+            height: 82px;
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aeb8bd;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -8px;
+            background: var(--cyan);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            color: #dce5e8;
+            cursor: pointer;
+        }
+        
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        section {
+            max-width: 1300px;
+            margin: auto;
+            padding: 120px 5%;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(35px, 5vw, 60px);
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .section-title span {
+            color: var(--cyan);
+        }
+
+        .section-description {
+            max-width: 650px;
+            color: var(--text);
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        #accueil {
+            min-height: 100vh;
+            padding-top: 150px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .available {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 11px 18px;
+            border: 1px solid var(--border);
+            background: rgba(84, 220, 245, 0.07);
+            border-radius: 50px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 30px;
+        }
+
+        .available-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #52e08d;
+            box-shadow: 0 0 14px #52e08d;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 9vw, 125px);
+            line-height: 0.85;
+            letter-spacing: -7px;
+            font-weight: 900;
+        }
+
+        .hero h1 .cyan {
+            color: var(--cyan);
+        }
+
+        .hero-subtitle {
+            margin-top: 35px;
+            font-size: 21px;
+            line-height: 1.8;
+            color: #dce5e9;
+            max-width: 700px;
+        }
+
+        .hero-subtitle strong {
+            color: white;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 55px;
+            padding: 0 23px;
+
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 800;
+
+            transition: 0.35s;
+        }
+
+        .btn-primary {
+            color: #061016;
+            background: var(--cyan);
+            box-shadow: 0 15px 40px rgba(84, 220, 245, 0.12);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(84, 220, 245, 0.22);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.025);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================================================
+           HERO CARD
+        ========================================================= */
+
+        .hero-card {
+            position: relative;
+            min-height: 500px;
+            border-radius: 30px;
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(22, 34, 42, 0.9),
+                    rgba(9, 14, 19, 0.92)
+                );
+
+            border: 1px solid var(--border);
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,0.45),
+                inset 0 0 50px rgba(84,220,245,0.025);
+
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            top: -100px;
+            right: -80px;
+            background: var(--cyan);
+            opacity: 0.08;
+            filter: blur(70px);
+            border-radius: 50%;
+        }
+
+        .terminal {
+            background: #05080b;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .terminal-bar {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 0 16px;
+            background: #10161b;
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #68747b;
+        }
+
+        .terminal-title {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #7f8b91;
+        }
+
+        .terminal-content {
+            padding: 35px 28px;
+            font-family: monospace;
+            line-height: 2;
+            color: #b7c7cd;
+            font-size: 14px;
+        }
+
+        .terminal-content .green {
+            color: #65e5a0;
+        }
+
+        .terminal-content .cyan {
+            color: var(--cyan);
+        }
+
+        .terminal-content .yellow {
+            color: #e8d579;
+        }
+
+        .terminal-content .white {
+            color: white;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--cyan);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text);
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .about-highlight {
+            padding: 25px;
+            margin-top: 25px;
+            border-left: 3px solid var(--cyan);
+            background: rgba(84,220,245,0.04);
+            color: #e4eef1;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-card {
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(84,220,245,0.4);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--cyan);
+        }
+
+        .stat-label {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--card);
+            transition: 0.35s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(84,220,245,0.4);
+        }
+
+        .skill-icon {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .tags {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 7px 10px;
+            border-radius: 8px;
+            background: rgba(84,220,245,0.07);
+            border: 1px solid rgba(84,220,245,0.12);
+            color: #a8e9f5;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: rgba(84,220,245,0.35);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+        }
+
+        .project-top {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at center,
+                rgba(84,220,245,0.17),
+                transparent 60%),
+                #0b1218;
+            border-bottom: 1px solid var(--border);
+            font-size: 60px;
+        }
+
+        .project-content {
+            padding: 28px;
+        }
+
+        .project-content h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           VEILLE
+        ========================================================= */
+
+        .veille-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .veille-card {
+            padding: 35px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 25px;
+        }
+
+        .veille-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .veille-card p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .veille-number {
+            color: var(--cyan);
+            font-size: 13px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================================
+           CERTIFICATIONS
+        ========================================================= */
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .cert {
+            padding: 30px;
+            border-radius: 22px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .cert:hover {
+            transform: translateY(-6px);
+        }
+
+        .cert-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .cert h3 {
+            margin-bottom: 10px;
+        }
+
+        .cert p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           TABLEAU
+        ========================================================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            background: rgba(10,15,20,0.7);
+        }
+
+        th,
+        td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        th {
+            color: var(--cyan);
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: #c5ced2;
+            font-size: 14px;
+        }
+
+        tr:hover td {
+            background: rgba(84,220,245,0.025);
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        
+
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 45px 5%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--cyan);
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        #top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+
+            width: 50px;
+            height: 50px;
+
+            border: 1px solid var(--border);
+            border-radius: 50%;
+
+            background: rgba(12,20,26,0.9);
+            color: var(--cyan);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        #top.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #top:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                min-height: 450px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .certifications {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid,
+            .veille-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            nav {
+                height: 70px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+
+                background: rgba(6,9,13,0.97);
+                backdrop-filter: blur(20px);
+
+                flex-direction: column;
+                align-items: center;
+
+                padding: 25px;
+
+                transform: translateY(-150%);
+                transition: 0.4s;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+            }
+
+            section {
+                padding: 90px 6%;
+            }
+
+            #accueil {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 70px;
+                letter-spacing: -4px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .certifications {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     PARTICULES
+========================================================= -->
+
+<div class="particles">
+
+    <span class="particle" style="left:10%; animation-duration:12s;"></span>
+    <span class="particle" style="left:20%; animation-duration:17s;"></span>
+    <span class="particle" style="left:32%; animation-duration:14s;"></span>
+    <span class="particle" style="left:45%; animation-duration:19s;"></span>
+    <span class="particle" style="left:58%; animation-duration:13s;"></span>
+    <span class="particle" style="left:70%; animation-duration:16s;"></span>
+    <span class="particle" style="left:82%; animation-duration:20s;"></span>
+    <span class="particle" style="left:94%; animation-duration:15s;"></span>
+
+</div>
+
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header>
+
+    <nav>
+
+        <a href="#accueil" class="logo">
+            &lt;VM<span>/</span>&gt;
+        </a>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#accueil" class="active">
+                    Accueil
+                </a>
+            </li>
+
+            <li>
+                <a href="#apropos">
+                    À propos
+                </a>
+            </li>
+
+            <li>
+                <a href="#competences">
+                    Compétences
+                </a>
+            </li>
+
+            <li>
+                <a href="#projets">
+                    Projets
+                </a>
+            </li>
+
+            <li>
+                <a href="#veille">
+                    Veille
+                </a>
+            </li>
+
+            <li>
+                <a href="#certifications">
+                    Certifications
+                </a>
+            </li>
+
+            
+
+        </ul>
+
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     ACCUEIL
+========================================================= -->
+
+<section id="accueil">
+
+    <div class="hero">
+
+
+        <!-- GAUCHE -->
+
+        <div class="reveal">
+
+            <div class="available">
+
+                <span class="available-dot"></span>
+
+                Disponible pour des opportunités
+
+            </div>
+
+
+            <h1>
+
+                Veinard
+
+                <span class="cyan">
+                    MISSIDI
+                </span>
+
+            </h1>
+
+
+            <p class="hero-subtitle">
+
+                Étudiant en <strong>BTS SIO – SISR</strong>,
+                passionné par les systèmes, les réseaux,
+                la cybersécurité et les infrastructures informatiques.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#projets"
+                   class="btn btn-primary">
+
+                    &lt;/&gt;
+
+                    Voir mes projets
+
+                </a>
+
+
+                
+
+                <a href="#competences"
+                   class="btn btn-outline">
+
+                    ↓
+
+                    Mes compétences
+
+                </a>
+                <a href="BTS.pdf"
+       class="btn btn-outline"
+       target="_blank">
+
+        📄
+        <span>Télécharger mon CV</span>
+
+    </a>
+    <a href="#synthese"
+       class="btn btn-outline">
+
+        ▣
+        <span>Tableau de synthèse</span>
+
+    </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- TERMINAL -->
+
+        <div class="hero-card reveal">
+
+            <div class="terminal">
+
+                <div class="terminal-bar">
+
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+
+                    <span class="terminal-title">
+                        terminal — portfolio
+                    </span>
+
+                </div>
+
+
+                <div class="terminal-content">
+
+                    <div>
+                        <span class="green">
+                            glory@sisr
+                        </span>:~$
+                        <span class="white">
+                            whoami
+                        </span>
+                    </div>
+
+                    <div class="cyan">
+                        Étudiant BTS SIO SISR
+                    </div>
+
+
+                    <br>
+
+
+                    <div>
+                        <span class="green">
+                            glory@sisr
+                        </span>:~$
+                        <span class="white">
+                            skills
+                        </span>
+                    </div>
+
+                    <div>
+                        → Réseaux
+                    </div>
+
+                    <div>
+                        → Systèmes
+                    </div>
+
+                    <div>
+                        → Cybersécurité
+                    </div>
+
+                    <div>
+                        → Administration
+                    </div>
+
+
+                    <br>
+
+
+                    <div>
+                        <span class="green">
+                            glory@sisr
+                        </span>:~$
+                        <span class="white">
+                            status
+                        </span>
+                    </div>
+
+                    <div class="yellow">
+                        ● Disponible
+                    </div>
+
+
+                    <br>
+
+
+                    <div>
+                        <span class="green">
+                            glory@sisr
+                        </span>:~$
+                        <span class="terminal-cursor"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     À PROPOS
+========================================================= -->
+
+<section id="apropos">
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            01 — À propos
+        </div>
+
+        <h2 class="section-title">
+            Construire. <span>Administrer.</span> Sécuriser.
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-text reveal">
+
+            <p>
+                Je suis étudiant en BTS SIO, option SISR
+                (Solutions d'Infrastructure, Systèmes et Réseaux).
+            </p>
+
+            <p>
+                Je m'intéresse particulièrement à l'administration
+                des systèmes, aux réseaux informatiques,
+                à la virtualisation et à la cybersécurité.
+            </p>
+
+            <p>
+                Mon objectif est de développer mes compétences
+                techniques au sein d'une entreprise et de participer
+                à la mise en place et au maintien d'infrastructures
+                informatiques fiables et sécurisées.
+            </p>
+
+
+            <div class="about-highlight">
+
+                <strong>
+                    Objectif professionnel
+                </strong>
+
+                <br>
+
+                Évoluer dans le domaine des systèmes,
+                réseaux et de la cybersécurité.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="about-stats reveal">
+
+            <div class="stat-card">
+
+                <div class="stat-number">
+                    02
+                </div>
+
+                <div class="stat-label">
+                    BTS SIO SISR
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-number">
+                    05+
+                </div>
+
+                <div class="stat-label">
+                    projets techniques
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     COMPÉTENCES
+========================================================= -->
+
+<section id="competences">
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            02 — Compétences
+        </div>
+
+        <h2 class="section-title">
+            Mon <span>stack technique.</span>
+        </h2>
+
+        <p class="section-description">
+            Technologies et outils étudiés ou utilisés dans
+            différents projets de systèmes, réseaux et administration.
+        </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                🌐
+            </div>
+
+            <h3>
+                Réseaux
+            </h3>
+
+            <p>
+                Configuration et compréhension des architectures
+                réseau et des protocoles.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">VLAN</span>
+                <span class="tag">DHCP</span>
+                <span class="tag">DNS</span>
+                <span class="tag">NAT</span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                🖥️
+            </div>
+
+            <h3>
+                Systèmes
+            </h3>
+
+            <p>
+                Installation, configuration et administration
+                de systèmes Linux et Windows Server.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">Debian</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Windows Server</span>
+                <span class="tag">Active Directory</span>
+                
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                🔐
+            </div>
+
+            <h3>
+                Cybersécurité
+            </h3>
+
+            <p>
+                Sensibilisation et mise en œuvre de mécanismes
+                permettant de sécuriser les infrastructures.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">Nmap</span>
+                <span class="tag">Wireshark</span>
+                <span class="tag">Firewall</span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                ☁️
+            </div>
+
+            <h3>
+                Virtualisation
+            </h3>
+
+            <p>
+                Création et gestion de machines virtuelles
+                pour les environnements de laboratoire.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">VMware</span>
+                <span class="tag">VirtualBox</span>
+                
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-card reveal">
+
+            <div class="skill-icon">
+                🛠️
+            </div>
+
+            <h3>
+                Administration
+            </h3>
+
+            <p>
+                Gestion de services, utilisateurs, ressources
+                et outils d'administration informatique.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">GLPI</span>
+                <span class="tag">Snipe-IT</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJETS
+========================================================= -->
+
+<section id="projets">
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            03 — Projets
+        </div>
+
+        <h2 class="section-title">
+            Ce que j'ai <span>construit.</span>
+        </h2>
+
+    </div>
+     <div class="projects-grid">
+
+
+        <article class="project reveal">
+
+            <div class="project-top">
+                 ⚙️
+                
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    GLPI
+                </h3>
+                 <p>
+                    J’ai installé GLPI sur un serveur, configuré la base de données et vérifié les permissions nécessaires à son fonctionnement.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">création des tickets</span>
+                    <span class="tag">gestions des tickets</span>
+                    <span class="tag">Résolution des incidents </span>
+                    <span class="tag">gestion des ordinateurs</span>
+
+                </div>
+                 <a href="#" class="project-link">
+                    Voir le projet →
+                </a>
+
+            </div>
+
+        </article>
+ <article class="project reveal">
+
+            <div class="project-top">
+                🖥️
+            </div>
+
+            <div class="project-content">
+<h1><span class="tag">Stage première année</span></h1><br><br>
+                <h3>
+                    Implémentation d'une infrastructure avec windows serveur
+                </h3>
+                 <p>
+                    Mise en place d’une infrastructure complète basée sur Windows Server, afin de découvrir et de pratiquer l’administration des systèmes et des réseaux.
+                </p>
+                <div class="tags">
+
+                    <span class="tag">installation et confifugaration des services</span>
+                    <span class="tag">GPO</span>
+                    <span class="tag">Déploiement automatique de firefox</span>
+                    <span class="tag">Configuration des stratégies de mots de passe</span>
+                    <span class="tag">Création des quotas</span>
+                    <span class="tag">Test de dépassement</span>
+                     <span class="tag">Mise en place de la réplication</span>
+                      <span class="tag">Déploiement ISO</span>
+                       <span class="tag">Déploiement multidiffusion</span>
+                        <span class="tag">Bureau à distance</span>
+                       <span class="tag">Accè à distance/VPN</span>
+                       <span class="tag">GLPI</span>
+                </div>
+
+                <a href="#" class="project-link">
+                    Voir le projet →
+                </a>
+
+            </div>
+             </article>
+
+
+
+        <article class="project reveal">
+
+            <div class="project-top">
+                🌐
+            </div>
+
+            <div class="project-content">
+                  <h3>
+                    Réseau VLAN Cisco
+                </h3>
+
+                <p>
+                    Conception d'un réseau comprenant plusieurs VLAN,
+                    routage inter-VLAN, DHCP et configuration
+                    d'équipements Cisco.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">Cisco</span>
+                    <span class="tag">VLAN</span>
+                    <span class="tag">DHCP</span>
+                    <span class="tag">Packet Tracer</span>
+
+                </div>
+
+                <a href="#" class="project-link">
+                    Voir le projet →
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="project reveal">
+
+            <div class="project-top">
+                <img src="Image/infra.png" alt="">
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    Analyse réseau
+                </h3>
+
+                <p>
+                    Utilisation d'outils d'analyse réseau pour
+                    observer le trafic, comprendre les protocoles
+                    et identifier certains comportements.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">Wireshark</span>
+                    <span class="tag">Nmap</span>
+                    <span class="tag">TCP/IP</span>
+
+                </div>
+
+                <a href="#" class="project-link">
+                    Voir le projet →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+
+   
+               
+
+          
+
+
+      
+
+                
+
+        
+             
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     VEILLE
+========================================================= -->
+
+<section id="veille">
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            04 — Veille technologique
+        </div>
+
+        <h2 class="section-title">
+            Toujours <span>apprendre.</span>
+        </h2>
+
+        <p class="section-description">
+            La veille technologique permet de suivre les évolutions
+            du secteur informatique et de rester informé des nouvelles
+            menaces et technologies.
+        </p>
+
+    </div>
+
+
+    <div class="veille-grid">
+
+
+        <div class="veille-card reveal">
+
+            <div class="veille-number">
+                VEILLE 01
+            </div>
+
+            <h3>
+                Cybersécurité
+            </h3>
+
+            <p>
+                Suivi des nouvelles vulnérabilités, attaques,
+                méthodes de protection, ransomwares et évolutions
+                des mécanismes de sécurité.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">
+                    CVE
+                </span>
+
+                <span class="tag">
+                    Ransomware
+                </span>
+
+                <span class="tag">
+                    Firewall
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="veille-card reveal">
+
+            <div class="veille-number">
+                VEILLE 02
+            </div>
+
+            <h3>
+                Réseaux & infrastructures
+            </h3>
+
+            <p>
+                Suivi des évolutions des architectures réseau,
+                de la virtualisation, du cloud et des solutions
+                d'administration des infrastructures.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">
+                    Cloud
+                </span>
+
+                <span class="tag">
+                    Virtualisation
+                </span>
+
+                <span class="tag">
+                    Réseaux
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CERTIFICATIONS
+========================================================= -->
+
+<section id="certifications">
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            05 — Certifications
+        </div>
+
+        <h2 class="section-title">
+            Mes <span>certifications.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="certifications">
+
+
+        <div class="cert reveal">
+
+            <div class="cert-icon">
+                🔐
+            </div>
+
+            <h3>
+                Cybersécurité
+            </h3>
+
+            <p>
+                Certifications et formations liées aux fondamentaux
+                de la sécurité informatique.
+            </p>
+
+        </div>
+
+
+
+        <div class="cert reveal">
+
+            <div class="cert-icon">
+                🌐
+            </div>
+
+            <h3>
+                Réseaux
+            </h3>
+
+            <p>
+                Compétences développées autour des réseaux,
+                protocoles et infrastructures.
+            </p>
+
+        </div>
+
+
+
+        <div class="cert reveal">
+
+            <div class="cert-icon">
+                🐧
+            </div>
+
+            <h3>
+                Linux
+            </h3>
+
+            <p>
+                Pratique des environnements Linux et des commandes
+                d'administration système.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TABLEAU DE SYNTHÈSE
+========================================================= -->
+
+<section id="synthese">
+
+    <div class="section-header reveal">
+
+        <div class="section-tag">
+            06 — BTS SIO
+        </div>
+
+        <h2 class="section-title">
+            Tableau de <span>synthèse.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="table-wrapper reveal">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Compétence
+                    </th>
+
+                    <th>
+                        Projet
+                    </th>
+
+                    <th>
+                        Technologie
+                    </th>
+
+                    <th>
+                        Niveau
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        Administrer les systèmes
+                    </td>
+
+                    <td>
+                        Serveur Linux
+                    </td>
+
+                    <td>
+                        Debian / Samba
+                    </td>
+
+                    <td>
+                        En cours
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Configurer un réseau
+                    </td>
+
+                    <td>
+                        VLAN Cisco
+                    </td>
+
+                    <td>
+                        Packet Tracer
+                    </td>
+
+                    <td>
+                        En cours
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Sécuriser l'infrastructure
+                    </td>
+
+                    <td>
+                        IPFire
+                    </td>
+
+                    <td>
+                        Firewall / SSH
+                    </td>
+
+                    <td>
+                        En cours
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Superviser le parc
+                    </td>
+
+                    <td>
+                        Gestion informatique
+                    </td>
+
+                    <td>
+                        GLPI / Snipe-IT
+                    </td>
+
+                    <td>
+                        En cours
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+
+   
+              
+
+
+            
+      
+      
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+
+        © 2026 —
+
+        <span>
+            Glory
+        </span>
+
+        | BTS SIO SISR
+
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
+
+<div id="top"
+     onclick="window.scrollTo({top:0, behavior:'smooth'})">
+
+    ↑
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+function toggleMenu() {
+
+    const menu =
+        document.getElementById("navLinks");
+
+    menu.classList.toggle("open");
+
+}
+
+
+/* Fermer le menu après clic */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            document
+                .getElementById("navLinks")
+                .classList.remove("open");
+
+        });
+
+    });
+
+
+
+/* =========================================================
+   SCROLL — BOUTON TOP
+========================================================= */
+
+window.addEventListener("scroll", () => {
+
+    const top =
+        document.getElementById("top");
+
+    if (window.scrollY > 500) {
+
+        top.classList.add("show");
+
+    } else {
+
+        top.classList.remove("show");
+
+    }
+
+});
+
+
+
+/* =========================================================
+   ANIMATION APPARITION
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+
+/* =========================================================
+   FORMULAIRE
+========================================================= */
+
+function sendMessage(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Merci pour votre message !\n\n" +
+        "Pour recevoir réellement les messages, " +
+        "il faudra connecter ce formulaire à un service " +
+        "comme Formspree, EmailJS ou un backend PHP."
+    );
+
+}
+
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
+
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 150;
+
+        if (window.scrollY >= sectionTop) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
